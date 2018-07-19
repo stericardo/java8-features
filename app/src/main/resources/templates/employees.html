@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Steven Ricardo Mendez Brenes Java 8 Features</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <div th:if="${employees != null}">
+        <h1>Result</h1>
+        <ul>
+            <li th:each="item : ${employees}" th:text="${item.name}">Item description here...</li>
+        </ul>
+    </div>
+</body>
+</html>
