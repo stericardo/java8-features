@@ -24,7 +24,6 @@ public class ArrayStreamSample {
                         .sorted()
                         .collect(Collectors.toList()));
 
-        // > 4
         List<Integer> mayorThan4 =
                 Arrays.stream(valores)
                         .filter(value -> value > 4)
@@ -33,27 +32,28 @@ public class ArrayStreamSample {
 
         List<Integer> numbers = Arrays.asList(valores);
 
+        //Arrays.asList returns > java.util.Arrays.ArrayList
         //numbers.add(10000);  This would produce java.lang.UnsupportedOperationException
 
-
         long startTime = System.nanoTime();
-       // System.out.printf("Ordered mayor than 4: %s%n",
-                Arrays.stream(valores)
-                        //.filter(value -> value > 4)
-                        //.sorted()
-                        .collect(Collectors.toList());
+        System.out.printf("Ordered mayor than 4: %s%n",
+                numbers.stream()
+                        .sorted()
+                        .collect(Collectors.toList()));
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);  //divide by 1 000 000 to get milliseconds.
-        LOGGER.info("Duration Method >>>> Arrays Stream <<<< " + String.valueOf(duration/1000));
+        LOGGER.info("Duration Method >>>> List Stream <<<< " + String.valueOf(duration/1000));
 
-        startTime = System.nanoTime();
-        //System.out.printf("Ordered mayor than 4: %s%n",
-                numbers.stream()
-                //.sorted()
-                .collect(Collectors.toList());
+
+         startTime = System.nanoTime();
+       System.out.printf("Ordered mayor than 4: %s%n",
+                Arrays.stream(valores)
+                        .filter(value -> value > 4)
+                        .sorted()
+                        .collect(Collectors.toList()));
         endTime = System.nanoTime();
         duration = (endTime - startTime);  //divide by 1 000 000 to get milliseconds.
-        LOGGER.info("Duration Method >>>> List Stream <<<< " + String.valueOf(duration/1000));
+        LOGGER.info("Duration Method >>>> Arrays Stream <<<< " + String.valueOf(duration/1000));
 
 
         startTime = System.nanoTime();
