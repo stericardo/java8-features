@@ -5,6 +5,6 @@ import java.util.Collections;
 public class Operations {
 
     public void nothing(){
-        Collections.u
+        
     }
 }
